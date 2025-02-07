@@ -43,6 +43,18 @@ const User2 = sequelize.define('User2', {
       len: { args: [6, 255], msg: 'Password must be at least 6 characters long' },
     },
   },
+  role: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: 'user',
+    validate: {
+      isIn: [['admin', 'user']],
+    },
+  },
+  
+
+
+  
 }, {
   timestamps: true, // Adds createdAt and updatedAt fields
 });
